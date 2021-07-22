@@ -65,7 +65,7 @@ export default function LeadSidebar(props) {
           language={"en"} /> 
       </Paper>
       <CssBaseline />
-      <Paper elevation={0} className={classes.paper}>
+      <Paper elevation={3} className={classes.paper}>
         <List className={classes.list}>
           {[0, 1, 2, 3, 4].map((item, index) => (
             <ListItem key={index}  className={classes.pad} >

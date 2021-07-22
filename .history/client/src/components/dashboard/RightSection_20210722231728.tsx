@@ -7,6 +7,9 @@ import FullWidthTabs from "./FullWidthTabs";
 
 const useStyles = makeStyles(() => ({
     root: {
+        flexGrow: 1,
+        maxWidth: 'auto',
+        height: 'auto',
         display: 'flex',
         flexDirection: 'column',
     }

@@ -7,7 +7,7 @@ import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import ListItemText from '@material-ui/core/ListItemText';
 import Menu, { MenuProps } from '@material-ui/core/Menu';
-import { InputBase, Button, Grid } from '@material-ui/core';
+import { InputBase, Button } from '@material-ui/core';
 import { createTheme, withStyles, createStyles, Theme, makeStyles,ThemeProvider } from '@material-ui/core/styles';
 import styled from 'styled-components'
 import { FcCalendar, FcCollaboration, FcDecision, FcContacts, FcEditImage, FcList, FcBullish, FcDepartment, FcIphone, FcFaq, FcSms, FcTemplate,} from "react-icons/fc";
@@ -49,7 +49,6 @@ const useStyles = makeStyles((theme: Theme) =>
     bar:{
       backgroundColor: grey["100"],
       fontSize: 10,
-      position: 'relative',
     },
     title: {
         flexGrow: 1,
@@ -61,12 +60,11 @@ const useStyles = makeStyles((theme: Theme) =>
     toolbar: {
       padding: "10px",
       justifyContent: "space-between", 
-      flexWrap: "wrap",
+      flexWrap: "wrap"
     },
     buttons: {
       display:"inline-flex",
       flexWrap: "wrap",
-      justifyContent: 'space-around',
     },
     link: {
       fontWeight: 300,
@@ -122,8 +120,8 @@ const useStyles = makeStyles((theme: Theme) =>
       lineHeight:2, 
       marginBottom: '0px!important', 
       backgroundColor: "#50a5f1",
-      paddingTop: '4px',
-      paddingBottom: '4px',
+      paddingTop: '10px',
+      paddingBottom: '10px',
     },
     label: {
         display: 'block',
@@ -203,8 +201,7 @@ export default function SearchTask() {
     <div className={classes.root} >
       <AppBar position="static" className={classes.bar} >
         <Toolbar  variant="dense" className={classes.toolbar} >
-          {/* <Grid lg={12}></Grid> */}
-          <Grid className={classes.buttons} lg={8} md={12}>
+          <div className={classes.buttons} >
             <Button1 variant="contained" size="small" style={{ backgroundColor: "#50a5f1" }}>
               Pending
             </Button1>
@@ -224,53 +221,51 @@ export default function SearchTask() {
                 {text}
               </Button2>
             ))}
-          </Grid>
-          <Grid lg={4} md={12} style={{display: "flex", justifyContent: "space-around", alignItems: "center"}}>
-            <Button1 variant="contained" size="medium" className={classes.leadBtn}>
+            <Button variant="contained" size="medium" className={classes.leadBtn}>
               Creat leads
-            </Button1>
-            <div className={classes.search}>
-              <div className={classes.searchIcon}>
-                <SearchIcon />
-              </div>
-              <InputBase
-                placeholder="Search Tasks"
-                classes={{
-                  root: classes.inputRoot,
-                  input: classes.inputInput,
-                }}
-                inputProps={{ 'aria-label': 'search' }}
-              />
+            </Button>
+          </div>
+          <div className={classes.search}>
+            <div className={classes.searchIcon}>
+              <SearchIcon />
             </div>
-            <div>
-              <IconButton
-                edge="end"
-                className={classes.apps}
-                size='medium'
-                onClick={handleClick}
-              >
-                <AppsIcon style={{fontSize: 40}}/>
-              </IconButton>
-              <StyledMenu
-                id="customized-menu"
-                anchorEl={anchorEl}
-                keepMounted
-                open={Boolean(anchorEl)}
-                onClose={handleClose}
-              >
-                  { 
-                      IconButtonData.map((data, index) => 
-                          <IconButton key={index} aria-label={data.label} classes={{label: classes.label}}>
-                              {data.icon}
-                              <ThemeProvider theme={theme}>
-                                  <ListItemText primary={data.label} classes={{ root: classes.listItemTextRoot}}/>
-                              </ThemeProvider>
-                          </IconButton>
-                      )
-                  }
-              </StyledMenu>
-            </div>
-          </Grid>
+            <InputBase
+              placeholder="Search Tasks"
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
+              }}
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </div>
+          <div>
+            <IconButton
+              edge="end"
+              className={classes.apps}
+              size='medium'
+              onClick={handleClick}
+            >
+              <AppsIcon style={{fontSize: 40}}/>
+            </IconButton>
+            <StyledMenu
+              id="customized-menu"
+              anchorEl={anchorEl}
+              keepMounted
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+            >
+                { 
+                    IconButtonData.map((data, index) => 
+                        <IconButton key={index} aria-label={data.label} classes={{label: classes.label}}>
+                            {data.icon}
+                            <ThemeProvider theme={theme}>
+                                <ListItemText primary={data.label} classes={{ root: classes.listItemTextRoot}}/>
+                            </ThemeProvider>
+                        </IconButton>
+                    )
+                }
+            </StyledMenu>
+          </div>
         </Toolbar>
       </AppBar>
     </div>

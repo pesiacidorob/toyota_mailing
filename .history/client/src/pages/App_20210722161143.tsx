@@ -5,6 +5,7 @@ import { withStyles, WithStyles } from "@material-ui/core/styles";
 import { ThemeProvider as MuiThemeProvider, } from "@material-ui/core/styles";
 import styles from "../styles";
 import { User } from "../types";
+import { Route } from "react-router-dom";
 import AppNavBar from "../components/AppNavBar";
 import LoginPage from "./SignInPage";
 import { connect } from "react-redux";
@@ -12,6 +13,13 @@ import AppNavDrawer from "../components/AppNavDrawer";
 import themeDefault from "../theme-default";
 import { thunkAuth } from "../services/thunks";
 import DashboardPage from "./DashboardPage";
+import OrderFormPage from "./OrderFormPage";
+import OrderListPage from "./OrderListPage";
+import ProductFormPage from "./ProductFormPage";
+import ProductListPage from "./ProductListPage";
+import CustomerListPage from "./CustomerListPage";
+import CustomerFormPage from "./CustomerFormPage";
+import ChangePasswordPage from "./ChangePasswordPage";
 import { SIGN_IN, HttpMethod, SIGN_OUT } from "../store/types";
 
 const isSmallsWindowScreen = () => {
@@ -40,9 +48,9 @@ const useStyles = (navDrawerOpen: boolean, isSmallScreen: boolean) => {
       overflow: "auto",
     },
     content: {
-      padding: navDrawerOpen ? '50px 0px 0px 60px' : '50px 0px 0px 250px',
+      margin: navDrawerOpen ? '50px 0px 0px 60px' : '50px 0px 0px 250px',
       flexGrow: 1,
-      height: `calc(100%)`,
+      height:"785px"
     },
   };
 };
@@ -153,7 +161,7 @@ class App extends React.Component<AppProps, AppState> {
     return (
       <MuiThemeProvider theme={themeDefault}>
           {isAuthenticated && (
-            <div style={{height: '100%'}}>
+            <div>
               <AppNavBar
                 styles={appStlyes}
                 handleDrawerToggle={this.handleDrawerToggle.bind(this)}

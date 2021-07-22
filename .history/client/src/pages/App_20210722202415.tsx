@@ -40,9 +40,9 @@ const useStyles = (navDrawerOpen: boolean, isSmallScreen: boolean) => {
       overflow: "auto",
     },
     content: {
-      padding: navDrawerOpen ? '50px 0px 0px 60px' : '50px 0px 0px 250px',
+      margin: navDrawerOpen ? '50px 0px 0px 60px' : '50px 0px 0px 250px',
       flexGrow: 1,
-      height: `calc(100%)`,
+      height: 'calc(100%-50px)',
     },
   };
 };

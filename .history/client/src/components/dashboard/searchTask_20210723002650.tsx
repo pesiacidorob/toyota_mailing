@@ -49,7 +49,6 @@ const useStyles = makeStyles((theme: Theme) =>
     bar:{
       backgroundColor: grey["100"],
       fontSize: 10,
-      position: 'relative',
     },
     title: {
         flexGrow: 1,
@@ -62,6 +61,7 @@ const useStyles = makeStyles((theme: Theme) =>
       padding: "10px",
       justifyContent: "space-between", 
       flexWrap: "wrap",
+      position: 'relative'
     },
     buttons: {
       display:"inline-flex",

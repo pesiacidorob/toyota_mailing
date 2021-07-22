@@ -10,7 +10,7 @@ import SimpleDatepicker from "./SimpleDatepicker";
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: 0,
-    height: '100%'
+    height: 'auto'
   },
   title: {
     margin: theme.spacing(4, 0, 2),
@@ -65,7 +65,7 @@ export default function LeadSidebar(props) {
           language={"en"} /> 
       </Paper>
       <CssBaseline />
-      <Paper elevation={0} className={classes.paper}>
+      <Paper elevation={3} className={classes.paper}>
         <List className={classes.list}>
           {[0, 1, 2, 3, 4].map((item, index) => (
             <ListItem key={index}  className={classes.pad} >

@@ -49,7 +49,6 @@ const useStyles = makeStyles((theme: Theme) =>
     bar:{
       backgroundColor: grey["100"],
       fontSize: 10,
-      position: 'relative',
     },
     title: {
         flexGrow: 1,
@@ -61,12 +60,12 @@ const useStyles = makeStyles((theme: Theme) =>
     toolbar: {
       padding: "10px",
       justifyContent: "space-between", 
-      flexWrap: "wrap",
+      flexWrap: "wrap"
     },
     buttons: {
       display:"inline-flex",
       flexWrap: "wrap",
-      justifyContent: 'space-around',
+
     },
     link: {
       fontWeight: 300,
@@ -122,8 +121,8 @@ const useStyles = makeStyles((theme: Theme) =>
       lineHeight:2, 
       marginBottom: '0px!important', 
       backgroundColor: "#50a5f1",
-      paddingTop: '4px',
-      paddingBottom: '4px',
+      paddingTop: '10px',
+      paddingBottom: '10px',
     },
     label: {
         display: 'block',
@@ -204,7 +203,7 @@ export default function SearchTask() {
       <AppBar position="static" className={classes.bar} >
         <Toolbar  variant="dense" className={classes.toolbar} >
           {/* <Grid lg={12}></Grid> */}
-          <Grid className={classes.buttons} lg={8} md={12}>
+          <Grid className={classes.buttons} lg={8}>
             <Button1 variant="contained" size="small" style={{ backgroundColor: "#50a5f1" }}>
               Pending
             </Button1>
@@ -225,7 +224,7 @@ export default function SearchTask() {
               </Button2>
             ))}
           </Grid>
-          <Grid lg={4} md={12} style={{display: "flex", justifyContent: "space-around", alignItems: "center"}}>
+          <Grid lg={4}>
             <Button1 variant="contained" size="medium" className={classes.leadBtn}>
               Creat leads
             </Button1>

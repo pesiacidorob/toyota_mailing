@@ -20,6 +20,7 @@ const styles = {
   },
   height: {
     height: `calc(100%-79px)`,
+    margin: '1px',
     flex: '1' 
   },
   flexdir: {
@@ -32,7 +33,7 @@ const DashboardPage = () => {
   return (
     <>
       <Grid container style={{padding: '1px', height: '100%'}}>
-        <Grid item lg={3} md={4} xs={12} style={{height: '100%', overflowY: 'scroll'}}>
+        <Grid item lg={3} md={4} xs={12} style={{height: '100%'}}>
           <LeadsSidebar data={Data.dashBoardPage.rightSection} />
         </Grid>
         <Grid item lg={9} md={8} xs={12} style={{display: 'flex', flexDirection: 'column' }}>

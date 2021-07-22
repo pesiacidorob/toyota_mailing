@@ -7,6 +7,10 @@ import FullWidthTabs from "./FullWidthTabs";
 
 const useStyles = makeStyles(() => ({
     root: {
+        flexGrow: 1,
+        maxWidth: 'auto',
+        height: 'auto',
+        marginTop: 8,
         display: 'flex',
         flexDirection: 'column',
     }
@@ -20,18 +24,16 @@ export default function RightSection(props){
     const classes = useStyles();
     return (
         <Paper className={classes.root}  elevation={3}>
-            <div>
-                <Datepicker
-                    beforeDate={3} 
-                    endDate={6} 
-                    selectDate={""}
-                    getSelectedDay={selectedDay} 
-                    labelFormat={"MMMM yyyy E"} 
-                    color={"#374e8c"} 
-                    language={"en"}
-                />
-                <PaperInfo data={props.data.information} /> 
-            </div>           
+            <Datepicker
+                beforeDate={3} 
+                endDate={6} 
+                selectDate={""}
+                getSelectedDay={selectedDay} 
+                labelFormat={"MMMM yyyy E"} 
+                color={"#374e8c"} 
+                language={"en"}
+            />
+            <PaperInfo data={props.data.information} />            
             <FullWidthTabs data={props.data.appointment} />
         </Paper>        
     );
