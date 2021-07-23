@@ -1,35 +1,32 @@
 import React from 'react';
 import clsx from 'clsx';
+import TableRow from '@material-ui/core/TableRow';
+import Checkbox from '@material-ui/core/Checkbox';
+import Typography from '@material-ui/core/Typography';
+import { TableCell } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { TableRow, Checkbox, Typography, TableCell, Grid } from '@material-ui/core';
-import styled from 'styled-components';
+import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
+import './react-super-responsive-table/SuperResponsiveTableStyle.css';
 
 const useStyles = makeStyles({  
-  sub: {
+  column: {
     textOverflow: 'ellipsis',
     overflowX: 'hidden',
     whiteSpace: 'nowrap',
-    paddingRight: '15px',
-    lineHeight: '41px',
   },
   from: {
-    fontWeight: 600,
-    lineHeight: '41px',
+    maxWidth: '150px',
+    fontWeight: 700
+  },
+  sub: {
+    maxWidth: '450px'
   },
   date: {
-    lineHeight: '41px',
-    textAlign: 'right',
-    paddingRight: '5px'
-  },
-  hover: {
-    '&:hover': {
-        cursor: 'pointer'
-    }
+    width: '50px'
   }
 });
 
-
-export default function EmailListRow({ email, emailId, sendDataToParent }){
+export default function EmailListRow({ email, key, emailId, sendDataToParent }){
 
     const classes = useStyles();
     const e_from = email.from.slice(0, email.from.indexOf("<"));
@@ -75,27 +72,21 @@ export default function EmailListRow({ email, emailId, sendDataToParent }){
     
     const emailDetail = { id: emailId, subject: email.subject, date: emailDate, from: e_from, text: email.from }
     console.log(e_from);
-    return ( 
-      <Grid container onClick={()=>{sendDataToParent(emailId, emailDetail)}} className={classes.hover}>
-          <Grid item xs={1}>
-              <Checkbox
-                  // indeterminate={numSelected > 0 && numSelected < rowCount}
-                  // checked={rowCount > 0 && numSelected === rowCount}
-                  // onChange={onSelectAllClick}
-                  inputProps={{ 'aria-label': 'select all desserts' }}
-                  onClick={func3}
-                  color="default"
-              />
-          </Grid>
-          <Grid item xs={3} className={classes.from}>
-              {e_from}
-          </Grid>
-          <Grid item xs={7} className={classes.sub}>
-              {email.subject}
-          </Grid>
-          <Grid item xs={1} className={classes.date}>
-              {emailDate}
-          </Grid>
-      </Grid>
+    return (     
+      <Tr key={key} onClick={()=>{sendDataToParent(emailId, emailDetail)}} hover>
+        <Td>
+          <Checkbox
+              // indeterminate={numSelected > 0 && numSelected < rowCount}
+              // checked={rowCount > 0 && numSelected === rowCount}
+              // onChange={onSelectAllClick}
+              inputProps={{ 'aria-label': 'select all desserts' }}
+              onClick={func3}
+              color="default"
+            />
+          </Td>
+        <Td><p className={clsx(classes.column, classes.from)}>{e_from}</p></Td>
+        <Td><p className={clsx(classes.column, classes.sub)}>{email.subject}</p></Td>
+        <Td>{emailDate}</Td>
+      </Tr>
     );    
 }

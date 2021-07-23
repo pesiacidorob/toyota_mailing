@@ -102,55 +102,57 @@ export default function FullWidthTabs(props) {
 
   return (
     <div className={classes.root}>
-        <Paper elevation={5} className={classes.tabPanel}>
-            <TabPanel value={value} index={0}>
-              <GlobalCss />
-              <Button variant="contained" fullWidth={true} className={classes.btn_tabcontent}>
-                Schedule an Email
-              </Button>
-              <Button variant="contained" fullWidth={true} className={classes.btn_tabcontent}>
-                Build & Price-Send Deal
-              </Button>
-              <CustomizedTimeline data={props.data} />
-            </TabPanel>
-            <TabPanel value={value} index={1}>
-              <GlobalCss />
-              <Button variant="contained" fullWidth={true} className={classes.btn_tabcontent}>
-                Financing Information
-              </Button>
-              <Button variant="contained" fullWidth={true} className={classes.btn_tabcontent}>
-                Vehicle Information
-              </Button>
-            </TabPanel>
-            <TabPanel value={value} index={2}>
-              <GlobalCss />
-              <Button variant="contained" fullWidth={true} className={classes.btn_tabcontent}>
-                Financing Information
-              </Button>
-              <Button variant="contained" fullWidth={true} className={classes.btn_tabcontent}>
-                Vehicle Information
-              </Button>
-            </TabPanel>
-        </Paper>
-        <Grid className={classes.icon}>
-            <IconButton>
-                <MailIcon color="primary"/>
-            </IconButton><IconButton>
-                <CreateIcon color="primary"/>
-            </IconButton>
-            <IconButton>
-                <CallToActionIcon color="primary"/>
-            </IconButton>
-            <IconButton>
-                <LocalOfferIcon color="primary"/>
-            </IconButton>
-            <IconButton>
-                <VideocamIcon color="primary"/>
-            </IconButton>
-            <IconButton>
-                <CameraRearIcon color="primary"/>
-            </IconButton>
-        </Grid>
+        <div>
+          <Paper elevation={5} className={classes.tabPanel}>
+              <TabPanel value={value} index={0}>
+                <GlobalCss />
+                <Button variant="contained" fullWidth={true} className={classes.btn_tabcontent}>
+                  Schedule an Email
+                </Button>
+                <Button variant="contained" fullWidth={true} className={classes.btn_tabcontent}>
+                  Build & Price-Send Deal
+                </Button>
+                <CustomizedTimeline data={props.data} />
+              </TabPanel>
+              <TabPanel value={value} index={1}>
+                <GlobalCss />
+                <Button variant="contained" fullWidth={true} className={classes.btn_tabcontent}>
+                  Financing Information
+                </Button>
+                <Button variant="contained" fullWidth={true} className={classes.btn_tabcontent}>
+                  Vehicle Information
+                </Button>
+              </TabPanel>
+              <TabPanel value={value} index={2}>
+                <GlobalCss />
+                <Button variant="contained" fullWidth={true} className={classes.btn_tabcontent}>
+                  Financing Information
+                </Button>
+                <Button variant="contained" fullWidth={true} className={classes.btn_tabcontent}>
+                  Vehicle Information
+                </Button>
+              </TabPanel>
+          </Paper>
+          <Grid className={classes.icon}>
+              <IconButton>
+                  <MailIcon color="primary"/>
+              </IconButton><IconButton>
+                  <CreateIcon color="primary"/>
+              </IconButton>
+              <IconButton>
+                  <CallToActionIcon color="primary"/>
+              </IconButton>
+              <IconButton>
+                  <LocalOfferIcon color="primary"/>
+              </IconButton>
+              <IconButton>
+                  <VideocamIcon color="primary"/>
+              </IconButton>
+              <IconButton>
+                  <CameraRearIcon color="primary"/>
+              </IconButton>
+          </Grid>
+        </div>
         <AppBar position="static" color="default">
           <Tabs
             value={value}

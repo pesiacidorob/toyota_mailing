@@ -16,12 +16,19 @@ app.get('/getEmailCrm', (req, res) => {
 
     var config = {
         imap: {
-            user: 'demo7486@gmail.com',
-            password: 'admin123$',
-            host: 'imap.gmail.com',
-            port: 993,
+            // user: 'demo7486@gmail.com',
+            // password: 'admin123$',
+            // host: 'imap.gmail.com',
+            // port: 993,
+            // tls: false,
+            // authTimeout: 3000
+
+            user: 'kbh1',
+            password: 'kbh12075',
+            host: '192.168.114.83',
+            port: 143,
             tls: false,
-            authTimeout: 3000            
+            authTimeout: 3000
         }
     };
 
