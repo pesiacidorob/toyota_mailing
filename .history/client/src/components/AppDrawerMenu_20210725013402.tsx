@@ -15,7 +15,7 @@ const useStyles = makeStyles(() =>
       fontSize: 16,
     },
     menuItemIcon: {
-      color: '#79829c',
+      color: '#09829c',
     } 
   })
 );

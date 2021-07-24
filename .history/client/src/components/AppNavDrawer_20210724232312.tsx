@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme: Theme) =>
         duration: theme.transitions.duration.leavingScreen,
       }),
       overflowX: 'hidden',
-      width: 70,
+      width: 60,
     },
   })
 );

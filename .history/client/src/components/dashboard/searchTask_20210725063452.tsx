@@ -142,7 +142,7 @@ const useStyles = makeStyles((theme: Theme) =>
 const StyledMenu = withStyles({
   paper: {
     border: '1px solid #d3d4d5',
-    width: '305px',
+    width: '285px',
     display: 'inline-block',
     padding: '30px 0',
   },

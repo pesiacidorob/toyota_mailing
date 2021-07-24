@@ -4,8 +4,6 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import CardContent from "@material-ui/core/CardContent";
 import {Card, Grid} from "@material-ui/core";
-import FileCopyIcon from '@material-ui/icons/FileCopy';
-import FireplaceIcon from '@material-ui/icons/Fireplace';
 import AutorenewIcon from '@material-ui/icons/Autorenew';
 import { makeStyles } from '@material-ui/core/styles';
 import DirectionsCarIcon from '@material-ui/icons/DirectionsCar';
@@ -37,11 +35,6 @@ const useStyles = makeStyles((theme) => ({
     transform:"translate(-0px,-25px)",
     zIndex: 0,
     position: "absolute"
-  },
-  contentFooter: {
-    position: 'absolute',
-    bottom: '0',
-    right: '60px'
   },
   card: {
     padding: "25px 8px"
@@ -110,14 +103,6 @@ export default function LeadCard(props) {
             </Grid>
         </Grid>
       </CardContent>
-      <div className={classes.contentFooter}>
-        <IconButton className={classes.iconbutton}>
-          <FileCopyIcon/>
-        </IconButton>
-        <IconButton className={classes.iconbutton} style={{color: 'red'}} >
-          <FireplaceIcon/>
-        </IconButton>
-      </div>
     </Card>
   );
 };

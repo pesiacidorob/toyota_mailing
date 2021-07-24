@@ -125,12 +125,12 @@ const data = {
       { name: "Source:", value: "iLead"},
       { name: "Type:", value: "Facebook Chat"},
       { name: "Date:", value: "2021-05-17"},
-      { name: "Overdue:", value: "0", color: '#ffc3beed'},
-      { name: "Scheduled:", value: "3", color: '#cdd4f2'},
-      { name: "Done:", value: "3", color: 'rgb(179 248 180)'},
-      { name: "Replied:", value: "0", color: '#f1a2ff'},
-      { name: "Request:", value: "0", color: '#ffc3beed'},
-      { name: "Confirmed:", value: "0", color: '#6fe1fb'}
+      { name: "Overdue:", value: "0"},
+      { name: "Scheduled:", value: "3"},
+      { name: "Done:", value: "3"},
+      { name: "Replied:", value: "0"},
+      { name: "Request:", value: "0"},
+      { name: "Confirmed:", value: "0"}
     ]
   }
 };

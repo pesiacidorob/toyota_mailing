@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import MenuItem from "@material-ui/core/MenuItem";
-import { makeStyles, createStyles, ThemeProvider, createTheme } from "@material-ui/core/styles";
+import { makeStyles, createStyles } from "@material-ui/core/styles";
 import { Typography, ListItemIcon } from "@material-ui/core";
 import data from "../data";
 
@@ -10,40 +10,28 @@ const useStyles = makeStyles(() =>
     menuItem: {
       color: '#79829c',
       fontWeight: 800,
-      paddingTop: "1em",
-      paddingBottom: "1em",
+      paddingTop: "0.5em",
+      paddingBottom: "0.5em",
       fontSize: 16,
     },
     menuItemIcon: {
       color: '#79829c',
+      width: '1.5em',
+      height: '1.5em',
     } 
   })
 );
 
-const theme = createTheme({
-  overrides: {
-    MuiSvgIcon: {
-      root: {
-        width: '1.5em',
-        height: '1.5em',
-      }
-    }
-  }
-})
-
 export default function AppDrawerMenu() {
   const styles = useStyles();
+  const classes = useStyles();
 
   return (
     <div style={{paddingTop: '100px'}}>
       {data.menus.map((menu, index) => (
         <Link key={`link_${index}`} to={menu.link} className="MuiListItem-button">
           <MenuItem key={index} className="MuiListItem-button">
-            <ListItemIcon className={styles.menuItemIcon}>
-              <ThemeProvider theme={theme}>
-                {menu.icon}
-              </ThemeProvider>
-            </ListItemIcon>
+            <ListItemIcon classes={{root: classes.menuItemIcon}}>{menu.icon}</ListItemIcon>
             <Typography  variant="h6" component="h6" className={styles.menuItem}>
               {menu.text}
             </Typography>

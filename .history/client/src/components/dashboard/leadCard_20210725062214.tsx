@@ -38,11 +38,6 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 0,
     position: "absolute"
   },
-  contentFooter: {
-    position: 'absolute',
-    bottom: '0',
-    right: '60px'
-  },
   card: {
     padding: "25px 8px"
   },
@@ -110,11 +105,11 @@ export default function LeadCard(props) {
             </Grid>
         </Grid>
       </CardContent>
-      <div className={classes.contentFooter}>
-        <IconButton className={classes.iconbutton}>
+      <div>
+        <IconButton className={classes.iconbutton} style={{color: 'rgb(241, 180, 76)'}} >
           <FileCopyIcon/>
         </IconButton>
-        <IconButton className={classes.iconbutton} style={{color: 'red'}} >
+        <IconButton className={classes.iconbutton} style={{color: 'rgb(241, 180, 76)'}} >
           <FireplaceIcon/>
         </IconButton>
       </div>

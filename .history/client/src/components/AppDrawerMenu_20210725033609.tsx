@@ -4,9 +4,25 @@ import MenuItem from "@material-ui/core/MenuItem";
 import { makeStyles, createStyles, ThemeProvider, createTheme } from "@material-ui/core/styles";
 import { Typography, ListItemIcon } from "@material-ui/core";
 import data from "../data";
+import { useState } from "react";
 
-const useStyles = makeStyles(() =>
-  createStyles({
+// const useStyles = makeStyles((navId) =>
+//   createStyles({
+//     menuItem: {
+//       color: '#79829c',
+//       fontWeight: 800,
+//       paddingTop: "1em",
+//       paddingBottom: "1em",
+//       fontSize: 16,
+//     },
+//     menuItemIcon: {
+//       color: navId ? '#79829c' : 'white',
+//     },
+//   })
+// );
+
+const useStyles = (navId) =>
+  return {
     menuItem: {
       color: '#79829c',
       fontWeight: 800,
@@ -15,10 +31,9 @@ const useStyles = makeStyles(() =>
       fontSize: 16,
     },
     menuItemIcon: {
-      color: '#79829c',
-    } 
-  })
-);
+      color: navId ? '#79829c' : 'white',
+    },
+}
 
 const theme = createTheme({
   overrides: {
@@ -31,15 +46,21 @@ const theme = createTheme({
   }
 })
 
+
 export default function AppDrawerMenu() {
-  const styles = useStyles();
+  const [navId, setNavId] = useState(0);
+  const handleColor = (id) => {
+    setNavId(id)
+  }
+  const styles = useStyles(navId);
+  console.log(navId)
 
   return (
     <div style={{paddingTop: '100px'}}>
       {data.menus.map((menu, index) => (
         <Link key={`link_${index}`} to={menu.link} className="MuiListItem-button">
           <MenuItem key={index} className="MuiListItem-button">
-            <ListItemIcon className={styles.menuItemIcon}>
+            <ListItemIcon className={styles.menuItemIcon} onClick={() => handleColor(index)}>
               <ThemeProvider theme={theme}>
                 {menu.icon}
               </ThemeProvider>

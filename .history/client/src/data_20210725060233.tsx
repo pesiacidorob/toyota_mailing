@@ -127,7 +127,7 @@ const data = {
       { name: "Date:", value: "2021-05-17"},
       { name: "Overdue:", value: "0", color: '#ffc3beed'},
       { name: "Scheduled:", value: "3", color: '#cdd4f2'},
-      { name: "Done:", value: "3", color: 'rgb(179 248 180)'},
+      { name: "Done:", value: "3", color: '#65fb69'},
       { name: "Replied:", value: "0", color: '#f1a2ff'},
       { name: "Request:", value: "0", color: '#ffc3beed'},
       { name: "Confirmed:", value: "0", color: '#6fe1fb'}

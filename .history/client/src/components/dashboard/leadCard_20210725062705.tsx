@@ -41,7 +41,6 @@ const useStyles = makeStyles((theme) => ({
   contentFooter: {
     position: 'absolute',
     bottom: '0',
-    right: '60px'
   },
   card: {
     padding: "25px 8px"

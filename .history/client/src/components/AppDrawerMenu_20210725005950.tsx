@@ -10,8 +10,8 @@ const useStyles = makeStyles(() =>
     menuItem: {
       color: '#79829c',
       fontWeight: 800,
-      paddingTop: "1em",
-      paddingBottom: "1em",
+      paddingTop: "0.5em",
+      paddingBottom: "0.5em",
       fontSize: 16,
     },
     menuItemIcon: {

@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme: Theme) =>
         duration: theme.transitions.duration.leavingScreen,
       }),
       overflowX: 'hidden',
-      width: 70,
+      width: 60,
     },
   })
 );
@@ -50,7 +50,7 @@ interface Props {
   onSignoutClick: () => void;
   onChangePassClick: ()=>void;
   handleDrawerToggle: () => void;
-  isSmallScreen: boolean;
+  isSmallScreem: boolean;
   drawerStyle: {};
   children?: TODO;
 }
@@ -59,7 +59,7 @@ export default function AppNavDrawer(props: Props) {
   const styles = useStyles();
   const {
     navDrawerOpen,
-    isSmallScreen,
+    isSmallScreem,
     handleDrawerToggle,
     drawerStyle,
   } = props;  
@@ -75,7 +75,7 @@ export default function AppNavDrawer(props: Props) {
     <div className={styles.root}>
       <nav style={drawerStyle} aria-label="app navigation">
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-        {!isSmallScreen ? (
+        {!isSmallScreem ? (
           <Drawer
             variant="persistent"
             anchor="left"
