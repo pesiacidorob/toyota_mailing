@@ -12,7 +12,7 @@ import TuneIcon from '@material-ui/icons/Tune';
 import { Icon } from 'react-icons-kit';
 import {speedometer} from 'react-icons-kit/ionicons/speedometer';
 
-
+export const IconSpeedometer () => <Icon icon={speedometer} />
 const cyan600 = cyan['600'];
 const pink600 = pink['600'];
 const purple600 = purple['600'];
@@ -20,7 +20,7 @@ const purple600 = purple['600'];
 const data = {
   menus: [
     { text: "Home", icon: <HomeOutlinedIcon />, link: "/home" },
-    { text: "DashBoard", icon: <Icon size={35} icon={speedometer} />, link: "/dashboard" },
+    { text: "DashBoard", icon: <Icon size={40} icon={speedometer} />, link: "/dashboard" },
     { text: "Available Leads", icon: <EventAvailableIcon />, link: "/available_leads" },
     { text: "Active Leads", icon: <StoreOutlinedIcon />, link: "/active_leads" },
     { text: "Sold Leads", icon: <StoreOutlinedIcon />, link: "/sold_leads" },
