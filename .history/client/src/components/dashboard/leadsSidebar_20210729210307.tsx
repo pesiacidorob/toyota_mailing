@@ -53,16 +53,24 @@ export default function LeadSidebar(props) {
   const classes = useStyles();
   return (
     <Paper elevation={3} className={classes.root} >
-      <SearchInput className={`${classes.search} search-input`}/>
-      <Paper variant="outlined" className={classes.datepicker} >        
-        {/* <SimpleDatepicker
+      <SimpleDatepicker
           beforeDate={3} 
           endDate={6} 
           selectDate={""}
           getSelectedDay={selectedDay} 
           labelFormat={"MMMM yyyy E"} 
           color={"#374e8c"} 
-          language={"en"} />  */}
+          language={"en"} /> 
+      <SearchInput className={`${classes.search} search-input`}/>
+      <Paper variant="outlined" className={classes.datepicker} >        
+        <SimpleDatepicker
+          beforeDate={3} 
+          endDate={6} 
+          selectDate={""}
+          getSelectedDay={selectedDay} 
+          labelFormat={"MMMM yyyy E"} 
+          color={"#374e8c"} 
+          language={"en"} /> 
       </Paper>
       <CssBaseline />
       <Paper elevation={0} className={classes.paper}>

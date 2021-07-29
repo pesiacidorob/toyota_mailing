@@ -23,7 +23,7 @@ export default function RightSection(props){
     const classes = useStyles();
     return (
         <Paper className={classes.root}  elevation={3}>
-            <Datepicker
+            {/* <Datepicker
                 beforeDate={3} 
                 endDate={6} 
                 selectDate={""}
@@ -31,7 +31,7 @@ export default function RightSection(props){
                 labelFormat={"MMMM yyyy E"} 
                 color={"#374e8c"} 
                 language={"en"}
-            />
+            /> */}
            
             {/* <PaperInfo data={props.data.information} />            
             <FullWidthTabs data={props.data.appointment} /> */}

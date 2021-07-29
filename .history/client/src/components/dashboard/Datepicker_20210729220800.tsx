@@ -101,23 +101,25 @@ const DateDayItem = styled.div`
 const DaysContainer = styled.div`
     display: flex;
     z-index: 1;
-    justify-content: space-around;
 `
+
 const DayLabel = styled.div`
     font-size: 14px;
     margin: 4px 0 0 0;
 `
+
 const DateLabel = styled.div`
     font-size: 18px;
 `
+
 export default function Datepicker({beforeDate, endDate, selectDate, getSelectedDay, color, labelFormat, language}) {
     const [selectedDate, setSelectedDate] = useState(new Date());
-    // const firstSection = {marginLeft: '40px'};
+    const firstSection = {marginLeft: '40px'};
     const current = new Date();
     const startDate = addDays(current, -beforeDate);
     const lastDate = addDays(startDate, endDate || 90);
-    const selectedStyle = {fontWeight:"bold",width:"30px",height:"50px",borderRadius:"5px",backgroundColor:`#f44336`,color:`white`};
     const primaryColor = color || 'rgb(54, 105, 238)';
+    const selectedStyle = {fontWeight:"bold",width:"25px",height:"50px",borderRadius:"12%",border:`2px solid ${primaryColor}`,color:primaryColor};
     const buttonColor = {background: primaryColor};
     const labelColor= {color: primaryColor};
 
@@ -127,6 +129,7 @@ export default function Datepicker({beforeDate, endDate, selectDate, getSelected
         }
         return null
     };
+
     const getId = (day) => {
         if (isSameDay(day, selectedDate)) {
             return ('selected')
@@ -166,7 +169,7 @@ export default function Datepicker({beforeDate, endDate, selectDate, getSelected
                 <div>
                                        
                     <MonthContainer key={month}>
-                        <DaysContainer >
+                        <DaysContainer style={i===0?firstSection:null}>
                             {days}
                         </DaysContainer>
                     </MonthContainer>
@@ -175,7 +178,7 @@ export default function Datepicker({beforeDate, endDate, selectDate, getSelected
             days = [];
         }
         
-        return  <DateListScrollable id={"container"}>
+        return<DateListScrollable id={"container"}>
                     {months}
                 </DateListScrollable>
     }
@@ -239,7 +242,7 @@ export default function Datepicker({beforeDate, endDate, selectDate, getSelected
     const classes = useStyles();
     return (<div className={classes.root}>
             <Grid container spacing={2} className={classes.containerPad}>
-                <Grid item xs container className={classes.dateContaniner}>
+                <Grid item sm container className={classes.dateContaniner}>
                     <Grid item className={classes.date}>{new Date().getDate()}</Grid>
                     <Grid item>
                         <Grid>{format(new Date(), "E")}</Grid>

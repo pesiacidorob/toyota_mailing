@@ -6,6 +6,9 @@ import SearchTask from '../components/dashboard/searchTask'
 import LeadsSidebar from '../components/dashboard/leadsSidebar'
 import RightSection from '../components/dashboard/RightSection'
 
+import Datepicker from "../components/dashboard/Datepicker";
+
+
 const styles = {
   navigation: {
     fontSize: 15,
@@ -27,6 +30,10 @@ const styles = {
   }
 };
 
+const selectedDay = (val) =>{
+  console.log(val)
+};
+
 const DashboardPage = () => {
   console.log();
   return (
@@ -46,7 +53,18 @@ const DashboardPage = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={12}></Grid>
+        <Grid item xs={12}>
+            <Datepicker
+                    beforeDate={3} 
+                    endDate={6} 
+                    selectDate={""}
+                    getSelectedDay={selectedDay} 
+                    labelFormat={"MMMM yyyy E"} 
+                    color={"#374e8c"} 
+                    language={"en"}
+                />
+
+        </Grid>
       </Grid>
     </>
   );

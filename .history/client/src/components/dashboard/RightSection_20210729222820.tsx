@@ -14,12 +14,11 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
-
+const selectedDay = (val) =>{
+    console.log(val)
+  };
+  
 export default function RightSection(props){
-    const selectedDay = (val) =>{
-        console.log(val)
-    };
-
     const classes = useStyles();
     return (
         <Paper className={classes.root}  elevation={3}>
@@ -32,7 +31,6 @@ export default function RightSection(props){
                 color={"#374e8c"} 
                 language={"en"}
             />
-           
             {/* <PaperInfo data={props.data.information} />            
             <FullWidthTabs data={props.data.appointment} /> */}
         </Paper>        

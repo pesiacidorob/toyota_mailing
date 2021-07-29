@@ -13,16 +13,17 @@ const useStyles = makeStyles((theme) => ({
       flexGrow: 1,
     },
     date: {
-      fontSize: '60px',
+      fontSize: '40px',
     },
     containerPad: {
-        padding: '15px'
+        padding: '15px',
+        paddingBottom: '0px'
     },
     dateContaniner: {
         display: 'flex',
         alignItems: 'center'
     }
-  }));
+}));
 
 const Container = styled.div`
     display: flex;
@@ -32,30 +33,6 @@ const Container = styled.div`
     box-sizing: border-box;
 `
 
-const ButtonWrapper = styled.div`
-    display: flex;
-    align-items: flex-end;
-    z-index: 2;
-    background: inherit;
-`
-
-const Button = styled.button`
-    border: none;
-    text-decoration: none;
-    cursor: pointer;
-    border-radius: 12%;
-    width: 20px;
-    height: 50px;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    margin-bottom: 5px;
-`
 const ButtonToday = styled.button`
     border-radius: 3px;
     cursor: pointer;
@@ -112,15 +89,10 @@ const DateLabel = styled.div`
 `
 export default function Datepicker({beforeDate, endDate, selectDate, getSelectedDay, color, labelFormat, language}) {
     const [selectedDate, setSelectedDate] = useState(new Date());
-    // const firstSection = {marginLeft: '40px'};
     const current = new Date();
     const startDate = addDays(current, -beforeDate);
     const lastDate = addDays(startDate, endDate || 90);
     const selectedStyle = {fontWeight:"bold",width:"30px",height:"50px",borderRadius:"5px",backgroundColor:`#f44336`,color:`white`};
-    const primaryColor = color || 'rgb(54, 105, 238)';
-    const buttonColor = {background: primaryColor};
-    const labelColor= {color: primaryColor};
-
     const getStyles = (day) => {
         if (isSameDay(day, selectedDate)) {
             return(selectedStyle);
@@ -142,7 +114,6 @@ export default function Datepicker({beforeDate, endDate, selectDate, getSelected
         let days = [];
         for (let i = 0; i <= differenceInMonths(lastDate, startDate); i++) {
             let start, end;
-            console.log(differenceInMonths(lastDate, startDate))
             const month = startOfMonth(addMonths(startDate, i));
             start = i === 0 ? Number(format(startDate, dateFormat)) - 1 : 0;
             end = i === differenceInMonths(lastDate, startDate) ? Number(format(lastDate, "d")) : Number(format(lastDayOfMonth(month), "d"));
@@ -162,20 +133,18 @@ export default function Datepicker({beforeDate, endDate, selectDate, getSelected
                     </DateDayItem>
                 );
             }
-            months.push(
-                <div>
-                                       
-                    <MonthContainer key={month}>
-                        <DaysContainer >
-                            {days}
-                        </DaysContainer>
-                    </MonthContainer>
-                </div>
+            months.push(                                
+                <MonthContainer key={month}>
+                        <DaysContainer > {/*style={i===0?firstSection:null} */}
+                        {days}
+                    </DaysContainer>
+                </MonthContainer>
             );
             days = [];
         }
         
         return  <DateListScrollable id={"container"}>
+                    {console.log(months)}
                     {months}
                 </DateListScrollable>
     }
@@ -210,19 +179,7 @@ export default function Datepicker({beforeDate, endDate, selectDate, getSelected
             }
         }
     }, [selectDate]);
-
-    const nextWeek = () => {
-        const e = document.getElementById('container');
-        const width = e ? e.getBoundingClientRect().width : null;
-        e.scrollLeft += width - 60;
-    };
-
-    const prevWeek = () => {
-        const e = document.getElementById('container');
-        const width = e ? e.getBoundingClientRect().width : null;
-        e.scrollLeft -= width - 60;
-    };
-
+    
     let langCode
     switch (language) {
         case "en":
@@ -251,15 +208,8 @@ export default function Datepicker({beforeDate, endDate, selectDate, getSelected
                 </Grid>
             </Grid>            
             <Container>
-                <ButtonWrapper>
-                    <Button style={buttonColor} onClick={prevWeek}>←</Button>
-                </ButtonWrapper>
                 {renderDays(langCode)}
-                <ButtonWrapper>
-                    <Button style={buttonColor} onClick={nextWeek}>→</Button>
-                </ButtonWrapper>
             </Container>
-        </div>
-            
+        </div>            
     )
 }

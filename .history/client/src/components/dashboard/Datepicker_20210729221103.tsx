@@ -166,7 +166,7 @@ export default function Datepicker({beforeDate, endDate, selectDate, getSelected
                 <div>
                                        
                     <MonthContainer key={month}>
-                        <DaysContainer >
+                        <DaysContainer style={i===0?firstSection:null}>
                             {days}
                         </DaysContainer>
                     </MonthContainer>
@@ -175,7 +175,7 @@ export default function Datepicker({beforeDate, endDate, selectDate, getSelected
             days = [];
         }
         
-        return  <DateListScrollable id={"container"}>
+        return<DateListScrollable id={"container"}>
                     {months}
                 </DateListScrollable>
     }
@@ -239,7 +239,7 @@ export default function Datepicker({beforeDate, endDate, selectDate, getSelected
     const classes = useStyles();
     return (<div className={classes.root}>
             <Grid container spacing={2} className={classes.containerPad}>
-                <Grid item xs container className={classes.dateContaniner}>
+                <Grid item sm container className={classes.dateContaniner}>
                     <Grid item className={classes.date}>{new Date().getDate()}</Grid>
                     <Grid item>
                         <Grid>{format(new Date(), "E")}</Grid>
